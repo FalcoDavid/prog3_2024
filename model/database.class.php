@@ -7,7 +7,7 @@
         private $conexion=null;
 
         //Conectar la base de datos 
-        public function connectDB(){
+        public function __construct(){
             $this->conexion= new mysqli($this->servidor ,$this->usuario, $this->clave, $this->nombre);
             //es una variable que nos avisa si hay un error y si lo hay, nos dice "fallo la conexion".
             if($this->conexion->connect_error){
