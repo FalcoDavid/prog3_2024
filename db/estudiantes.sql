@@ -28,29 +28,30 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `estudiantes`
 --
 
-CREATE TABLE `students` (
-  `idStudent` int(100) NOT NULL,
+CREATE TABLE `estudiantes` (
+  `idEstudiante` int(100) NOT NULL,
   `dni` int(11) NOT NULL,
-  `surname` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `name` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `birthdate` date NOT NULL,
-  `phone` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
-  `address` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `apellido` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `nombre` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `fecnac` date NOT NULL,
+  `telefono` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
   `email` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` int(20) NOT NULL,
   `password` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
-  `school` varchar(200) COLLATE utf8_spanish_ci NOT NULL
+  `institucion` varchar(200) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `estudiantes`
 --
 
-INSERT INTO `students` (`idStudent`, `dni`, `surname`, `name`, `birthdate`, `phone`, `address`, `email`, `password`, `school`) VALUES
-(1, 44341300, 'ACUÑA ', 'CARO ANDRÉS NICOLÁS', '2002-12-05', '', '', '', '44341300', 'Epet Nro3'),
-(2, 44342301, 'BAIGORRIA ', 'ARIANA AILIN ', '2003-02-03', '', '', '', '44342301', 'Epet Nro3'),
-(3, 44341303, 'BENEITE BIRNE', 'KAREN ELISABET ', '2002-10-17', '', '', '', '44341303', 'Epet Nro3'),
-(4, 44120304, 'BONINO ', 'ENZO  ', '2002-10-23', '', '', '', 44120304, 'Epet Nro3'),
-(5, 44680305, 'BUFFAGNE ', 'TERESITA ANTONELA ', '2002-03-20', '', '', '', '44680305', 'Epet Nro3');
+INSERT INTO `estudiantes` (`idEstudiante`, `dni`, `apellido`, `nombre`, `fecnac`, `telefono`, `direccion`, `email`, `usuario`, `password`, `institucion`) VALUES
+(1, 44341300, 'ACUÑA ', 'CARO ANDRÉS NICOLÁS', '2002-12-05', '', '', '', 44341300, '44341300', 'Epet Nro3'),
+(2, 44342301, 'BAIGORRIA ', 'ARIANA AILIN ', '2003-02-03', '', '', '', 44342301, '44342301', 'Epet Nro3'),
+(3, 44341303, 'BENEITE BIRNE', 'KAREN ELISABET ', '2002-10-17', '', '', '', 44341303, '44341303', 'Epet Nro3'),
+(4, 44120304, 'BONINO ', 'ENZO  ', '2002-10-23', '', '', '', 44120304, '44120304', 'Epet Nro3'),
+(5, 44680305, 'BUFFAGNE ', 'TERESITA ANTONELA ', '2002-03-20', '', '', '', 44680305, '44680305', 'Epet Nro3');
 
 --
 -- Índices para tablas volcadas
@@ -59,8 +60,8 @@ INSERT INTO `students` (`idStudent`, `dni`, `surname`, `name`, `birthdate`, `pho
 --
 -- Indices de la tabla `estudiantes`
 --
-ALTER TABLE `students`
-  ADD PRIMARY KEY (`idStudent`);
+ALTER TABLE `estudiantes`
+  ADD PRIMARY KEY (`idEstudiante`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -69,8 +70,8 @@ ALTER TABLE `students`
 --
 -- AUTO_INCREMENT de la tabla `estudiantes`
 --
-ALTER TABLE `students`
-  MODIFY `idStudent` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+ALTER TABLE `estudiantes`
+  MODIFY `idEstudiante` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
