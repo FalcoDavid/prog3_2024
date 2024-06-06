@@ -1,17 +1,17 @@
 <?php 
     class Database{
-        private $nombre="db_school";
+        private $nombre="estudiantes";
         private $servidor="localhost";
         private $usuario="root";
         private $clave="";
-        private $conexion=null;
+        private $conexion;
 
         //Conectar la base de datos 
         public function __construct(){
-            $this->conexion= new mysqli($this->servidor ,$this->usuario, $this->clave, $this->nombre);
+            $this ->conexion= new mysqli($this->servidor ,$this->usuario, $this->clave ,$this->nombre);
             //es una variable que nos avisa si hay un error y si lo hay, nos dice "fallo la conexion".
             if($this->conexion->connect_error){
-                print "Fallo la conexion:".$this->conexion->connect_error:
+                print "Fallo la conexion:".$this->conexion->connect_error;
             }
         }
         //Ejecuta la consulta a la base de datos, por ejemplo: INSERT INTO, SELECT, DELETE, UPDATE...
@@ -22,9 +22,9 @@
         //cierra la conexion de la base de datos.
         //realizarla
         public function closeDB(){
-            if $this->conexion(){
+            if ($this->conexion()){
                 $this->conexion->close();
-                print "Conexion cerrada"
+                
             }
         }
     }

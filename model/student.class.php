@@ -30,12 +30,11 @@ class Student {
 
     public function addStudent(){
         //crear la consulta
-        $sql="INSERT INTO students (dni, surname, name, birthdate, phone, address, email, password, school) VALUES (".$this->dni.",'".$this->surname."','".$this->name."','".$this->birthdate."','".$this->phone."','".$this->address."','".$this->email."','".$this->password."','".$this->school."')";
+        $sql="INSERT INTO estudiantes (dni, surname, name, birthdate, phone, address, email, password, school) VALUES (".$this->dni.",'".$this->surname."','".$this->name."','".$this->birthdate."','".$this->phone."','".$this->address."','".$this->email."','".$this->password."','".$this->school."')";
         
         $this->conexion=new Database();
-        $result= $this->conexion=query($sql);
+        $result= $this->conexion->query($sql);
         $this->conexion->close();
-
         return $result;
 
     }
@@ -67,7 +66,7 @@ class Student {
         $result= $this->conexion=query($sql);
         $this->conexion->close();
         if ($result){
-            if($row=$result->fetch_assoc)){
+            if($row=$result->fetch_assoc){
                 $this->dni=$row["dni"];
                 $this->surname=$row["surname"];
                 $this->name=$row["name"];
@@ -94,7 +93,7 @@ class Student {
     }
 
     public function setIdStudent($idStudent){
-        $this->idStudent=idStudent;
+        $this->idStudent=$idStudent;
     }
 
     public function getdni(){
@@ -103,7 +102,7 @@ class Student {
     }
 
     public function setdni($dni){
-        $this->dni=dni;
+        $this->dni=$dni;
     }
 
     public function getsurname(){
@@ -112,7 +111,7 @@ class Student {
     }
 
     public function setsurname($surname){
-        $this->surname=surname;
+        $this->surname=$surname;
     }
 
     public function getname(){
@@ -121,7 +120,7 @@ class Student {
     }
 
     public function setname($name){
-        $this->name=name;
+        $this->name=$name;
     }
 
     public function getbirthdate(){
@@ -130,7 +129,7 @@ class Student {
     }
 
     public function setbirthdate($birthdate){
-        $this->birthdate=birthdate;
+        $this->birthdate=$birthdate;
     }
 
     public function getphone(){
@@ -139,7 +138,7 @@ class Student {
     }
 
     public function setphone($phone){
-        $this->phone=phone;
+        $this->phone=$phone;
     }
 
     public function getaddress(){
@@ -148,7 +147,7 @@ class Student {
     }
 
     public function setaddress($address){
-        $this->address=address;
+        $this->address=$address;
     }
 
     public function getemail(){
@@ -157,7 +156,7 @@ class Student {
     }
 
     public function setemail($email){
-        $this->email=email;
+        $this->email=$email;
     }
 
     public function getpassword(){
@@ -166,7 +165,7 @@ class Student {
     }
 
     public function setpassword($password){
-        $this->password=password;
+        $this->password=$password;
     }
 
     public function getschool(){
@@ -175,7 +174,7 @@ class Student {
     }
 
     public function setschool($school){
-        $this->school=school;
+        $this->school=$school;
     }
 }
 ?>
