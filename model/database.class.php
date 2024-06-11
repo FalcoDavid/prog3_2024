@@ -1,6 +1,6 @@
 <?php 
     class Database{
-        private $nombre="estudiantes";
+        private $nombre="db_school";
         private $servidor="localhost";
         private $usuario="root";
         private $clave="";
@@ -15,15 +15,16 @@
             }
         }
         //Ejecuta la consulta a la base de datos, por ejemplo: INSERT INTO, SELECT, DELETE, UPDATE...
-        public function query ($sql) {
+        public function query($sql) {
             return $this->conexion->query($sql);
-
         }
+
+        
         //cierra la conexion de la base de datos.
         //realizarla
         public function closeDB(){
-            if ($this->conexion()){
-                $this->conexion->close();
+            if($this->conexion !== null){
+                $this->close();
                 
             }
         }
