@@ -33,7 +33,8 @@
                                 print "<td>".$data["dni"]."</td>";
                                 print "<td>".$data["birthdate"]."</td>";
                                 print "<td>".$data["phone"]."</td>";
-                                print "<td> los 2 botones</td>";
+                                print "<td> <input type='button' name='editar' value='Editar' onclick=\"location.href'formEditStudent.php?idStudent=".$data["idStudent"]."\';'/>";
+                                print "<input type='button' name='editar' value='Editar' onclick=''/>"; </td>";
                             print "</tr>";
                         ]
                     }else{
