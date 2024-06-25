@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Student</title>
+    <link rel="stylesheet" href="css/alertify.css" />
+    <link rel="stylesheet" href="css/themes/default.css" />
 </head>
 <body>
     <h1> Panel de Estudientes</h1>
@@ -34,8 +36,9 @@
                                 print "<td>".$data["birthdate"]."</td>";
                                 print "<td>".$data["phone"]."</td>";
                                 print "<td> <input type='button' name='editar' value='Editar' onclick=\"location.href'formEditStudent.php?idStudent=".$data["idStudent"]."\';'/>";
-                                print "<input type='button' name='editar' value='Editar' onclick=''/>"; </td>";
-                            print "</tr>";
+                                print "<input type='button' name='eliminar' value='Eliminar' onclick=''/>"; </td>";
+                            echo "</td>";
+                            echo "</tr>";
                         ]
                     }else{
                         print"No existe estudiantes cargados";
@@ -44,4 +47,6 @@
             </tbody>
     </table>
 </body>
+<script src="js/alertify.js"></script>
+<script src="js/jquery.js"></script>
 </html>
