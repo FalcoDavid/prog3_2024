@@ -23,7 +23,7 @@
         </thead>
             <tbody>
                 <?php
-                    include("model/student-class.php");
+                    include("model/student.class.php");
                     $student= new Student();
                     $allStudents= $student->getAllStudents();
                     if($allStudents){
@@ -36,7 +36,7 @@
                                 print "<td>".$data["birthdate"]."</td>";
                                 print "<td>".$data["phone"]."</td>";
                                 print "<td> <input type='button' name='editar' value='Editar' onclick=\"location.href'formEditStudent.php?idStudent=".$data["idStudent"]."\';'/>";
-                                print "<input type='button' name='eliminar' value='Eliminar' onclick=''/>"; </td>";
+                                print "<input type='button' name='eliminar' value='Eliminar' onclick='askDeleteStudent(".$data["idStudent"].");'/>"; </td>";
                             echo "</td>";
                             echo "</tr>";
                         ]
@@ -49,4 +49,5 @@
 </body>
 <script src="js/alertify.js"></script>
 <script src="js/jquery.js"></script>
+<script src="js/funciones.js"></script>
 </html>

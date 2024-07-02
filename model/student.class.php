@@ -31,10 +31,9 @@ class Student {
     public function addStudent(){
         //crear la consulta
         $sql="INSERT INTO estudiantes (dni, surname, name, birthdate, phone, address, email, password, school) VALUES (".$this->dni.",'".$this->surname."','".$this->name."','".$this->birthdate."','".$this->phone."','".$this->address."','".$this->email."','".$this->password."','".$this->school."')";
-        
         $this->conexion=new Database();
         $result= $this->conexion->query($sql);
-        $this->conexion->close();
+        $this->conexion->closeDB();
         return $result;
 
     }
@@ -44,27 +43,27 @@ class Student {
         
         $this->conexion=new Database();
         $result= $this->conexion=query($sql);
-        $this->conexion->close();
+        $this->conexion->closeDB();
 
         return $result;
     }
 
     public function deleteStudent(){
-        $sql="DELETE FROM students WHERE idStudent=".this->$idStudent;
+        $sql="DELETE FROM students WHERE idStudent=".$this->$idStudent;
 
         $this->conexion=new Database();
         $result= $this->conexion=query($sql);
-        $this->conexion->close();
+        $this->conexion->closeDB();
 
         return $result;
     }
 
     public function getStudent(){
-        $sql="SELECT * FROM students WHERE idStudent=".this->$idStudent;
+        $sql="SELECT * FROM students WHERE idStudent=".$this->$idStudent;
 
         $this->conexion=new Database();
-        $result= $this->conexion=query($sql);
-        $this->conexion->close();
+        $result= $this->conexion->query($sql);
+        $this->conexion->closeDB();
         if ($result){
             if($row=$result->fetch_assoc){
                 $this->dni=$row["dni"];

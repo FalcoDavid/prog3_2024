@@ -4,7 +4,7 @@
         private $servidor="localhost";
         private $usuario="root";
         private $clave="";
-        private $conexion;
+        private $conexion=null;
 
         //Conectar la base de datos 
         public function __construct(){
@@ -24,7 +24,8 @@
         //realizarla
         public function closeDB(){
             if($this->conexion !== null){
-                $this->close();
+                $this->conexion->close();
+                print "Conexion cerrada";
                 
             }
         }
