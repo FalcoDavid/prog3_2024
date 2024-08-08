@@ -9,11 +9,11 @@ Class Subject {
     private $hourSubject=null;
     private $themeSubject=null;
     private $noteSubject=null;
-
+    public  $TURNSUBJECT=null;
 
 public function addSubject (){
-    $sql="INSERT INTO subjects (idSubject, nameSubject, teacherSubject, levelSubject, hourSubject, themeSubject, noteSubject) 
-    VALUES (".$this->idSubject.",'".$this->nameSubject."','".$this->teacherSubject."','".$this->levelSubject."','".$this->hourSubject."','".$this->themeSubject."','".$this->noteSubject."')";
+    $sql="INSERT INTO subjects (idSubject, nameSubject, teacherSubject, levelSubject, hourSubject, themeSubject, noteSubject, TURNSUBJECT) 
+    VALUES (".$this->idSubject.",'".$this->nameSubject."','".$this->teacherSubject."','".$this->levelSubject."','".$this->hourSubject."','".$this->themeSubject."','".$this->TURNSUBJECT."')";
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
     $this->conexion->closeDB();
@@ -21,7 +21,7 @@ public function addSubject (){
 }
 
 public function editSubject (){
-    $sql="UPDATE subjects SET nameSubject='".$this->nameSubject."', teacherSubject='".$this->levelSubject."', hourSubject='".$this->hourSubject."', themeSubject='".$this->themeSubject."', noteSubject='".$this->noteSubject."' WHERE idSubject=".$this->idSubject;
+    $sql="UPDATE subjects SET nameSubject='".$this->nameSubject."', teacherSubject='".$this->levelSubject."', hourSubject='".$this->hourSubject."', themeSubject='".$this->themeSubject."', noteSubject='".$this->noteSubject."', ='".$this->noteSubject."', ='".$this->TURNSUBJECT."' WHERE idSubject=".$this->idSubject;
         
     $this->conexion=new Database();
     $result= $this->conexion=query($sql);
@@ -54,6 +54,7 @@ public function getSubject(){
             $this->hourSubject=$row["hourSubject"];
             $this->themeSubject=$row["themeSubject"];
             $this->noteSubject=$row["noteSubject"];
+            $this->noteSubject=$row["TURNSUBJECT"];
             return true;
         }
     }
@@ -124,6 +125,15 @@ public function getNoteSubject(){
 
 public function setNoteSubject($noteSubject){
     $this->noteSubject=$noteSubject;
+}
+
+public function getTurnSubject(){
+    return $this->TURNSUBJECT;
+    
+}
+
+public function setTurnSubject($TURNSUBJECT){
+    $this->TURNSUBJECT=$TURNSUBJECT;
 }
 
 }
