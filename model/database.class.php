@@ -14,6 +14,7 @@
                 print "Fallo la conexion:".$this->conexion->connect_error;
             }
         }
+    
         //Ejecuta la consulta a la base de datos, por ejemplo: INSERT INTO, SELECT, DELETE, UPDATE...
         public function query($sql) {
             return $this->conexion->query($sql);
