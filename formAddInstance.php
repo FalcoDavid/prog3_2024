@@ -6,24 +6,28 @@
     <title>Agregar Instancia</title>
 </head>
 <body>
-    <form method="POST" action="controller/instance.controller.php">
+    <form method="POST" name="formAddInstance" action="controller/instance.controller.php">
         <input type="hidden" name="operation" value="add"/>
         
+        <label>Fecha de Inicio:</label>  
+        <input type="date" name="stdate_Instance"><br> <!-- Nuevo campo -->
+
         <label>Fecha de Finalización:</label> 
-        <input type="date" name="findateInstance"><br>
+        <input type="date" name="findate_Instance"><br>
 
         <label>Año:</label>  
-        <input type="text" name="yearInstance"><br>
+        <input type="text" name="year_Instance"><br>
 
         <label>Cuatrimestre:</label>    
-        <input type="number" name="quarnumberInstance"><br>
+        <input type="number" name="quarnumber_Instance"><br>
 
         <label>Nota:</label>  
-        <input type="text" name="noteInstance"><br>
+        <input type="text" name="note_Instance"><br>
 
         <button type="submit" name="aceptar">Aceptar</button>
         <button type="reset" name="cancelar">Cancelar</button>
     </form>
 </body>
 </html>
+
 

@@ -6,20 +6,23 @@ $operation = $_REQUEST["operation"];
 $instance = new Instance();
 
 if ($operation == "add") {
-    // Seteamos los valores recibidos del formulario
-    $instance->setFindateInstance($_REQUEST["findateInstance"]);
-    $instance->setYearInstance($_REQUEST["yearInstance"]);
-    $instance->setQuarnumberInstance($_REQUEST["quarnumberInstance"]);
-    $instance->setNoteInstance($_REQUEST["noteInstance"]);
+    // Seteamos los valores recibidos del formulario, incluyendo el nuevo campo stdateInstance
+    $instance->setIdCicleInstance($_REQUEST["idCicleInstance"]);
+    $instance->setStdateInstance($_REQUEST["stdate_Instance"]); // Nuevo campo
+    $instance->setFindateInstance($_REQUEST["findate_Instance"]);
+    $instance->setYearInstance($_REQUEST["year_Instance"]);
+    $instance->setQuarnumberInstance($_REQUEST["quarnumber_Instance"]);
+    $instance->setNoteInstance($_REQUEST["note_Instance"]);
     $instance->addInstance();
 
 } else if ($operation == "update") {
     // Actualizamos los valores de la instancia
     $instance->setIdCicleInstance($_REQUEST["idCicleInstance"]);
-    $instance->setFindateInstance($_REQUEST["findateInstance"]);
-    $instance->setYearInstance($_REQUEST["yearInstance"]);
-    $instance->setQuarnumberInstance($_REQUEST["quarnumberInstance"]);
-    $instance->setNoteInstance($_REQUEST["noteInstance"]);
+    $instance->setStdateInstance($_REQUEST["stdate_Instance"]); // Nuevo campo
+    $instance->setFindateInstance($_REQUEST["findate_Instance"]);
+    $instance->setYearInstance($_REQUEST["year_Instance"]);
+    $instance->setQuarnumberInstance($_REQUEST["quarnumber_Instance"]);
+    $instance->setNoteInstance($_REQUEST["note_Instance"]);
     $instance->editInstance();
 
 } else if ($operation == "delete") {

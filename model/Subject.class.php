@@ -13,7 +13,7 @@ class Subject {
     private $turnSubject;
 
     public function addSubject() {
-        $sql = "INSERT INTO Subjects (name_Subject, year_Subject, teacher_Subject, level_Subject, hour_Subject, theme_Subject, note_Subject, turn_Subject) 
+        $sql = "INSERT INTO subject (name_Subject, year_Subject, teacher_Subject, level_Subject, hour_Subject, theme_Subject, note_Subject, turn_Subject) 
                 VALUES ('".$this->nameSubject."', '".$this->yearSubject."', '".$this->teacherSubject."', '".$this->levelSubject."', '".$this->hourSubject."', '".$this->themeSubject."', '".$this->noteSubject."', '".$this->turnSubject."')";
         $this->conexion = new Database();
         $result = $this->conexion->query($sql);
@@ -22,7 +22,7 @@ class Subject {
     }
 
     public function editSubject() {
-        $sql = "UPDATE Subjects 
+        $sql = "UPDATE subject 
                 SET name_Subject = '".$this->nameSubject."', 
                     year_Subject = '".$this->yearSubject."', 
                     teacher_Subject = '".$this->teacherSubject."', 
@@ -39,7 +39,7 @@ class Subject {
     }
 
     public function deleteSubject() {
-        $sql = "DELETE FROM Subjects WHERE id_Subject = ".$this->idSubject;
+        $sql = "DELETE FROM subject WHERE id_Subject = ".$this->idSubject;
         $this->conexion = new Database();
         $result = $this->conexion->query($sql);
         $this->conexion->closeDB();
@@ -47,7 +47,7 @@ class Subject {
     }
 
     public function getSubject() {
-        $sql = "SELECT * FROM Subjects WHERE id_Subject = ".$this->idSubject;
+        $sql = "SELECT * FROM subject WHERE id_Subject = ".$this->idSubject;
         $this->conexion = new Database();
         $result = $this->conexion->query($sql);
         $this->conexion->closeDB();

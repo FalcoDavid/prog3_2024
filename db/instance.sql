@@ -29,11 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `instance` (
   `id_Cicleinstance` int(11) NOT NULL,
+  `stdate_Instance` date NOT NULL,        -- Nueva columna
   `findate_Instance` date NOT NULL,
   `year_Instance` int(4) NOT NULL,
   `quarnumber_Instance` int(20) NOT NULL,
   `note_Instance` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 
 --
 -- Índices para tablas volcadas
