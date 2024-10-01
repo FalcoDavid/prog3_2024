@@ -3,73 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/editSubjectInstance.css">
     <title>Editar Materia</title>
-    
-   
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // Cargar datos al inicio
+            loadTable();
+
+            // Cargar datos en la tabla
+            function loadTable() {
+                $.ajax({
+                    url: 'controller/subject.controller.php',
+                    type: 'POST',
+                    data: { operation: 'list' },
+                    success: function(response) {
+                        $('#subjectTable').html(response);
+                    }
+                });
+            }
+
+            // Actualizar formulario
+            $('form[name="editSubject"]').submit(function(event){
+                event.preventDefault();
+                $.ajax({
+                    url: 'controller/subject.controller.php',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        alert('Materia actualizada correctamente');
+                        loadTable();
+                    }
+                });
+            });
+
+            // Función de eliminar
+            $('#deleteSubjectBtn').click(function(){
+                if(confirm('¿Estás seguro de eliminar esta materia?')) {
+                    $.ajax({
+                        url: 'controller/subject.controller.php',
+                        type: 'POST',
+                        data: {
+                            operation: 'delete',
+                            id_Subject: $('input[name="id_Subject"]').val()
+                        },
+                        success: function(response) {
+                            alert('Materia eliminada correctamente');
+                            window.location.href = "listaMateria.php"; // Redirige después de eliminar
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </head>
 <body>
+    <form method="POST" name="editSubject" action="controller/subject.controller.php">
+        <input type="hidden" name="operation" value="edit"/>
+        <input type="hidden" name="id_Subject" value="<?=$subject->getIdSubject();?>">
 
-<div class="container">
-    <!-- Formulario para editar materia -->
-    <form id="editSubjectForm" onsubmit="updateSubject(event)">
-        <input type="hidden" name="operation" value="update"/>
+        <label>Nombre:</label> 
+        <input type="text" name="name_Subject" value="<?=$subject->getNameSubject();?>"><br>
 
-        <label>ID de la Materia:</label>
-        <input type="number" name="id_Subject" required><br>
+        <label>Año:</label>  
+        <input type="number" name="year_Subject" value="<?=$subject->getYearSubject();?>"><br>
 
-        <label>Nombre de la Materia:</label>
-        <input type="text" name="name_Subject" required><br>
+        <label>Profesor:</label>    
+        <input type="text" name="teacher_Subject" value="<?=$subject->getTeacherSubject();?>"><br>
 
-        <label>Año:</label>
-        <input type="number" name="year_Subject" required><br>
+        <label>Nivel:</label>    
+        <input type="number" name="level_Subject" value="<?=$subject->getLevelSubject();?>"><br>
 
-        <label>Profesor:</label>
-        <input type="text" name="teacher_Subject" required><br>
+        <label>Horas:</label>    
+        <input type="number" name="hour_Subject" value="<?=$subject->getHourSubject();?>"><br>
 
-        <label>Nivel:</label>
-        <input type="number" name="level_Subject" required><br>
-
-        <label>Horas:</label>
-        <input type="number" name="hour_Subject" required><br>
-
-        <label>Tema:</label>
-        <input type="text" name="theme_Subject" required><br>
-
-        <label>Nota:</label>
-        <input type="number" name="note_Subject" required><br>
-
-        <label>Turno:</label>
-        <input type="text" name="turn_Subject" required><br>
-
-        <button type="submit">Actualizar</button>
+        <button type="submit" name="aceptar">Aceptar</button>
+        <button type="reset" name="cancelar">Cancelar</button>
+        <button type="button" id="deleteSubjectBtn">Eliminar</button> <!-- Botón de eliminar -->
     </form>
 
-    <!-- Tabla que muestra las materias cargadas en la base de datos -->
-    <div>
-        <h3>Materias Cargadas</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Año</th>
-                    <th>Profesor</th>
-                    <th>Nivel</th>
-                    <th>Horas</th>
-                    <th>Tema</th>
-                    <th>Nota</th>
-                    <th>Turno</th>
-                </tr>
-            </thead>
-            <tbody id="subjectTable">
-                <!-- Los datos se cargarán aquí dinámicamente con AJAX -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="./js/EditSubject.js"></script>
+    <table border="1" id="subjectTable"></table> 
 </body>
 </html>
