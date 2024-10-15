@@ -8,7 +8,7 @@ $instance = new Instance();
 if ($operation == "add") {
     // Seteamos los valores recibidos del formulario, incluyendo el nuevo campo stdateInstance
     $instance->setIdCicleInstance($_REQUEST["idCicleInstance"]);
-    $instance->setStdateInstance($_REQUEST["stdate_Instance"]); // Nuevo campo
+    $instance->setStdateInstance($_REQUEST["stdate_Instance"]); 
     $instance->setFindateInstance($_REQUEST["findate_Instance"]);
     $instance->setYearInstance($_REQUEST["year_Instance"]);
     $instance->setQuarnumberInstance($_REQUEST["quarnumber_Instance"]);

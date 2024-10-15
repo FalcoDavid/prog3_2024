@@ -12,6 +12,7 @@ function deleteStudent(id){
             if(result==1){
                 alertify.success("El proceso se ejecuto correctamente");
                 location.reload();
+                window.location.href = "formEditinstance.php";
             }else{
                 alertify.error("El proceso no pudo realizarse");
             }

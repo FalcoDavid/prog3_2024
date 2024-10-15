@@ -10,32 +10,6 @@
             // Cargar datos al inicio
             loadTable();
 
-            // Cargar datos en la tabla
-            function loadTable() {
-                $.ajax({
-                    url: 'controller/instance.controller.php',
-                    type: 'POST',
-                    data: { operation: 'list' },
-                    success: function(response) {
-                        $('#instanceTable').html(response);
-                    }
-                });
-            }
-
-            // Actualizar formulario
-            $('form[name="editInstance"]').submit(function(event){
-                event.preventDefault();
-                $.ajax({
-                    url: 'controller/instance.controller.php',
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        alert('Instancia actualizada correctamente');
-                        loadTable();
-                    }
-                });
-            });
-
             // Función de eliminar
             $('#deleteInstanceBtn').click(function(){
                 if(confirm('¿Estás seguro de eliminar esta instancia?')) {
@@ -48,7 +22,7 @@
                         },
                         success: function(response) {
                             alert('Instancia eliminada correctamente');
-                            window.location.href = "listaInstancia.php"; // Redirige después de eliminar
+                            window.location.href = "formEditinstance.php"; // Redirige después de eliminar
                         }
                     });
                 }
@@ -59,25 +33,45 @@
 <body>
     <form method="POST" name="editInstance" action="controller/instance.controller.php">
         <input type="hidden" name="operation" value="edit"/>
-        <input type="hidden" name="id_Cicleinstance" value="<?=$instance->getIdCicleInstance();?>">
+
+        <label>Id:</label>
+        <input type="text" name="id_Cicleinstance" value=""><br>
 
         <label>Fecha de Inicio:</label> 
-        <input type="date" name="stdate_instance" value="<?=$instance->getStdateInstance();?>"><br>
+        <input type="date" name="stdate_instance" value=""><br>
 
         <label>Fecha de Finalización:</label> 
-        <input type="date" name="findate_instance" value="<?=$instance->getFindateInstance();?>"><br>
+        <input type="date" name="findate_instance" value=""><br>
 
         <label>Año:</label>  
-        <input type="text" name="year_instance" value="<?=$instance->getYearInstance();?>"><br>
+        <input type="text" name="year_instance" value=""><br>
 
         <label>Cuatrimestre:</label>    
-        <input type="number" name="quarnumber_instance" value="<?=$instance->getQuarnumberInstance();?>"><br>
+        <input type="number" name="quarnumber_instance" value=""><br>
 
         <button type="submit" name="aceptar">Aceptar</button>
         <button type="reset" name="cancelar">Cancelar</button>
         <button type="button" id="deleteInstanceBtn">Eliminar</button> <!-- Botón de eliminar -->
     </form>
-
+    <div>
+        <h3>Instancias Cargadas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha Fin</th>
+                    <th>Año</th>
+                    <th>Cuatrimestre</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody id="instanceTable">
+                <!-- Los datos se cargarán aquí dinámicamente con AJAX -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="./js/EditInstance.js"></script>
     <table border="1" id="instanceTable"></table> 
 </body>
 </html>

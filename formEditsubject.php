@@ -9,33 +9,7 @@
         $(document).ready(function(){
             // Cargar datos al inicio
             loadTable();
-
-            // Cargar datos en la tabla
-            function loadTable() {
-                $.ajax({
-                    url: 'controller/subject.controller.php',
-                    type: 'POST',
-                    data: { operation: 'list' },
-                    success: function(response) {
-                        $('#subjectTable').html(response);
-                    }
-                });
-            }
-
-            // Actualizar formulario
-            $('form[name="editSubject"]').submit(function(event){
-                event.preventDefault();
-                $.ajax({
-                    url: 'controller/subject.controller.php',
-                    type: 'POST',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        alert('Materia actualizada correctamente');
-                        loadTable();
-                    }
-                });
-            });
-
+            
             // Función de eliminar
             $('#deleteSubjectBtn').click(function(){
                 if(confirm('¿Estás seguro de eliminar esta materia?')) {
@@ -48,7 +22,7 @@
                         },
                         success: function(response) {
                             alert('Materia eliminada correctamente');
-                            window.location.href = "listaMateria.php"; // Redirige después de eliminar
+                            window.location.href = "formEditsubject.php"; // Redirige después de eliminar
                         }
                     });
                 }
@@ -59,28 +33,53 @@
 <body>
     <form method="POST" name="editSubject" action="controller/subject.controller.php">
         <input type="hidden" name="operation" value="edit"/>
-        <input type="hidden" name="id_Subject" value="<?=$subject->getIdSubject();?>">
+
+        <label>Id:</label>
+        <input type="text" name="id_Subject" value=""><br>
 
         <label>Nombre:</label> 
-        <input type="text" name="name_Subject" value="<?=$subject->getNameSubject();?>"><br>
+        <input type="text" name="name_Subject" value=""><br>
 
         <label>Año:</label>  
-        <input type="number" name="year_Subject" value="<?=$subject->getYearSubject();?>"><br>
+        <input type="number" name="year_Subject" value=""><br>
 
         <label>Profesor:</label>    
-        <input type="text" name="teacher_Subject" value="<?=$subject->getTeacherSubject();?>"><br>
+        <input type="text" name="teacher_Subject" value=""><br>
 
         <label>Nivel:</label>    
-        <input type="number" name="level_Subject" value="<?=$subject->getLevelSubject();?>"><br>
+        <input type="number" name="level_Subject" value=""><br>
 
         <label>Horas:</label>    
-        <input type="number" name="hour_Subject" value="<?=$subject->getHourSubject();?>"><br>
+        <input type="number" name="hour_Subject" value=""><br>
 
         <button type="submit" name="aceptar">Aceptar</button>
         <button type="reset" name="cancelar">Cancelar</button>
         <button type="button" id="deleteSubjectBtn">Eliminar</button> <!-- Botón de eliminar -->
     </form>
 
-    <table border="1" id="subjectTable"></table> 
+    <div>
+        <h3>Materias Cargadas</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Año</th>
+                    <th>Profesor</th>
+                    <th>Nivel</th>
+                    <th>Horas</th>
+                    <th>Tema</th>
+                    <th>Nota</th>
+                    <th>Turno</th>
+                </tr>
+            </thead>
+            <tbody id="subjectTable">
+                <!-- Los datos se cargarán aquí dinámicamente con AJAX -->
+            </tbody>
+        </table>
+    </div>
+</div>
+<script src="./js/EditSubject.js"></script>
+    <table border="1" id="subjectTable"></table>
 </body>
 </html>
