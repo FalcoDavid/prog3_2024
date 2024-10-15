@@ -27,3 +27,26 @@
         window.onload = function() {
             loadInstances();  // Cargar instancias al cargar la página
         };
+    
+        $(document).ready(function(){
+            // Cargar datos al inicio
+            loadTable();
+
+            // Función de eliminar
+            $('#deleteInstanceBtn').click(function(){
+                if(confirm('¿Estás seguro de eliminar esta instancia?')) {
+                    $.ajax({
+                        url: 'controller/instance.controller.php',
+                        type: 'POST',
+                        data: {
+                            operation: 'delete',
+                            idCicleInstance: $('input[name="id_Cicleinstance"]').val()
+                        },
+                        success: function(response) {
+                            alert('Instancia eliminada correctamente');
+                            window.location.href = "formEditinstance.php"; // Redirige después de eliminar
+                        }
+                    });
+                }
+            });
+        });

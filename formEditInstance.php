@@ -5,30 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Instancia</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            // Cargar datos al inicio
-            loadTable();
-
-            // Función de eliminar
-            $('#deleteInstanceBtn').click(function(){
-                if(confirm('¿Estás seguro de eliminar esta instancia?')) {
-                    $.ajax({
-                        url: 'controller/instance.controller.php',
-                        type: 'POST',
-                        data: {
-                            operation: 'delete',
-                            idCicleInstance: $('input[name="id_Cicleinstance"]').val()
-                        },
-                        success: function(response) {
-                            alert('Instancia eliminada correctamente');
-                            window.location.href = "formEditinstance.php"; // Redirige después de eliminar
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="./css/editSubjectinstance.css">
+    
 </head>
 <body>
     <form method="POST" name="editInstance" action="controller/instance.controller.php">

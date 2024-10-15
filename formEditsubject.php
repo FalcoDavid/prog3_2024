@@ -5,30 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Materia</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            // Cargar datos al inicio
-            loadTable();
-            
-            // Función de eliminar
-            $('#deleteSubjectBtn').click(function(){
-                if(confirm('¿Estás seguro de eliminar esta materia?')) {
-                    $.ajax({
-                        url: 'controller/subject.controller.php',
-                        type: 'POST',
-                        data: {
-                            operation: 'delete',
-                            id_Subject: $('input[name="id_Subject"]').val()
-                        },
-                        success: function(response) {
-                            alert('Materia eliminada correctamente');
-                            window.location.href = "formEditsubject.php"; // Redirige después de eliminar
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <link rel="stylesheet" href="./css/editSubjectinstance.css">
+   
 </head>
 <body>
     <form method="POST" name="editSubject" action="controller/subject.controller.php">
