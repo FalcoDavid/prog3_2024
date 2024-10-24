@@ -9,6 +9,9 @@
    
 </head>
 <body>
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+ 
+    
     <form method="POST" name="editSubject" action="controller/subject.controller.php">
         <input type="hidden" name="operation" value="edit"/>
 
@@ -60,4 +63,5 @@
 <script src="./js/EditSubject.js"></script>
     <table border="1" id="subjectTable"></table>
 </body>
+
 </html>

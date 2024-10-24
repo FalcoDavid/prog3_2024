@@ -6,6 +6,7 @@
     <title>Agregar Materia</title>
 </head>
 <body>
+<?php include("components/header.php");?>
     <form method="POST" action="controller/subject.controller.php">
         <input type="hidden" name="operation" value="add"/>
 
@@ -35,5 +36,6 @@
 
         <button type="submit">Agregar</button>
     </form>
+    <?php include("components/footer.php");?>
 </body>
 </html>

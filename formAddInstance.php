@@ -6,6 +6,7 @@
     <title>Agregar Instancia</title>
 </head>
 <body>
+<?php include("components/header.php");?>
     <form method="POST" name="formAddInstance" action="controller/instance.controller.php">
         <input type="hidden" name="operation" value="add"/>
         
@@ -27,6 +28,7 @@
         <button type="submit" name="aceptar">Aceptar</button>
         <button type="reset" name="cancelar">Cancelar</button>
     </form>
+    <?php include("components/footer.php");?>
 </body>
 </html>
 

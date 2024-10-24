@@ -1,27 +1,32 @@
 
+/* Estilo del cuerpo */
 body {
-    margin-left: 12px;
-    padding: 0;
+    margin: 0;
+    padding: 20px; /* Un margen uniforme */
     font-family: Arial, sans-serif;
     background-color: #c4e0ff;
     color: #000000;
 }
 
+/* Encabezados */
 h2, h3 {
     color: #1fb6ff;
     text-align: center;
+    margin-bottom: 20px;
 }
 
+/* Contenedor principal para el formulario y la tabla */
 .container {
     display: flex;
-    justify-content: space-around; /* Asegura que haya espacio entre el formulario y la lista */
+    justify-content: space-between; /* Distribuye los elementos a los extremos */
+    align-items: flex-start; /* Alinea los elementos en la parte superior */
     padding: 20px;
-    gap: 20px; /* Espacio adicional entre los elementos */
+    gap: 30px; /* Espacio entre el formulario y la tabla */
 }
 
 /* Estilo del formulario */
 .form-edit-instance {
-    width: 40%; /* Asegura que no ocupe demasiado espacio */
+    width: 40%; /* Mantiene el formulario compacto */
     background-color: #1c2541;
     padding: 30px;
     border-radius: 10px;
@@ -33,9 +38,8 @@ h2, h3 {
 
 .form-edit-instance label {
     font-weight: bold;
+    color: #ffffff;
     margin-bottom: 5px;
-    color: #000000;
-    
 }
 
 .form-edit-instance input {
@@ -44,26 +48,28 @@ h2, h3 {
     border: 1px solid #3a506b;
     border-radius: 5px;
     background-color: #0d1b2a;
-    color: #000000;
-    flex-direction: column;
-    right: 20px;
+    color: #ffffff;
 }
 
-/* Asegura que los botones estén bien alineados */
+/* Alineación de los botones */
 .form-buttons {
     display: flex;
     justify-content: space-between;
+    gap: 10px; /* Espacio entre los botones */
     margin-top: 10px;
 }
 
 button {
+    flex: 1; /* Los botones ocuparán el mismo espacio */
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
+    text-align: center;
 }
 
+/* Botones específicos */
 button[name="aceptar"] {
     background-color: #1fb6ff;
     color: #0d1b2a;
@@ -74,39 +80,35 @@ button[name="cancelar"] {
     color: white;
 }
 
-button#deleteInstanceBtn {
-    background-color: #ff4c4c;
-    color: white;
-}
-
+button#deleteInstanceBtn,
 button#deletesubjectBtn {
     background-color: #ff4c4c;
     color: white;
 }
 
-
-/* Estilo de la lista de datos */
+/* Estilo de la lista de datos / tabla */
 .data-list {
-    width: 55%; /* Ajustamos para que ocupe más espacio */
+    width: 100%; /* Asegura que la tabla ocupe más espacio */
     background-color: #1c2541;
-    padding: 20px;
+    padding: 0px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border: 1px solid #ffffff;
+    overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
 }
 
 table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
     
+    margin-top: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #000000;
 }
 
 th, td {
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #3a506b;
-    border-color:x
 }
 
 th {
@@ -116,4 +118,5 @@ th {
 
 tr:hover {
     background-color: #3a506b;
+    color: white;
 }

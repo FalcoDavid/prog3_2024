@@ -9,6 +9,7 @@
     
 </head>
 <body>
+<?php include("components/header.php");?>
     <form method="POST" name="editInstance" action="controller/instance.controller.php">
         <input type="hidden" name="operation" value="edit"/>
 
@@ -52,6 +53,7 @@
 <script src="./js/EditInstance.js"></script>
     <table border="1" id="instanceTable"></table> 
 </body>
+<?php include("components/footer.php");?>
 </html>
 
 
