@@ -1,16 +1,15 @@
-
 /* Estilo del cuerpo */
 body {
     margin: 0;
     padding: 20px; /* Un margen uniforme */
     font-family: Arial, sans-serif;
     background-color: #c4e0ff;
-    color: #000000;
+   
 }
 
 /* Encabezados */
 h2, h3 {
-    color: #1fb6ff;
+    color: #191c1d;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -20,15 +19,16 @@ h2, h3 {
     display: flex;
     justify-content: space-between; /* Distribuye los elementos a los extremos */
     align-items: flex-start; /* Alinea los elementos en la parte superior */
-    padding: 20px;
-    gap: 30px; /* Espacio entre el formulario y la tabla */
+    padding: 10px;
+    padding-top:20px;
+    gap: 10px; /* Espacio entre el formulario y la tabla */
 }
 
 /* Estilo del formulario */
 .form-edit-instance {
-    width: 40%; /* Mantiene el formulario compacto */
+    width: 0%; /* Mantiene el formulario compacto */
     background-color: #1c2541;
-    padding: 30px;
+    padding: 10px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -49,6 +49,17 @@ h2, h3 {
     border-radius: 5px;
     background-color: #0d1b2a;
     color: #ffffff;
+    margin-left:10px;
+}
+
+.form-edit-subject input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #3a506b;
+    border-radius: 5px;
+    background-color: #0d1b2a;
+    color: #ffffff;
+    margin-left:10px;
 }
 
 /* Alineación de los botones */
@@ -71,19 +82,18 @@ button {
 
 /* Botones específicos */
 button[name="aceptar"] {
-    background-color: #1fb6ff;
-    color: #0d1b2a;
+    background-color: #0c5a81;
+    color: #ffffff;
 }
 
 button[name="cancelar"] {
-    background-color: #3a506b;
+    background-color: #6b3a3a;
     color: white;
 }
 
-button#deleteInstanceBtn,
-button#deletesubjectBtn {
-    background-color: #ff4c4c;
-    color: white;
+.deleteInstanceBtn{
+    background-color: red;
+    color:white;
 }
 
 /* Estilo de la lista de datos / tabla */
@@ -97,26 +107,37 @@ button#deletesubjectBtn {
     overflow-x: auto; /* Permite desplazamiento horizontal si es necesario */
 }
 
-table {
-    width: 100%;
-    
-    margin-top: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid #000000;
-}
+
 
 th, td {
     padding: 10px;
     text-align: center;
     border-bottom: 1px solid #3a506b;
+    color:#ffffff;
+    
 }
 
 th {
-    background-color: #1fb6ff;
-    color: #0d1b2a;
+    background-color: #0f4058;
+    color: #ffffff;
 }
 
 tr:hover {
     background-color: #3a506b;
     color: white;
+}
+
+
+
+table{
+    width:100%;
+    margin-right:0;
+    
+}
+
+form{
+
+
+text-align: center;
+
 }

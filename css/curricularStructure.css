@@ -1,0 +1,34 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+table {
+    width: 60%;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgb(229, 231, 231);
+    margin-left:270px;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+th {
+    background-color: #0078A8;
+    color: #ffffff;
+}
+.general-header {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    text-align: center;
+    vertical-align: middle;
+}
+.no-border {
+    border: none;
+}
+
+h2{
+    text-align: center;
+}
