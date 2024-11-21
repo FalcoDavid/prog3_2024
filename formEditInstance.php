@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Instancia</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/editSubjectinstance.css">
+    <link rel="stylesheet" href="css/editSubjectinstance.css">
     
 </head>
 <body>
-<?php include("components/header.php");?>
+
     <form method="POST" name="editInstance" action="controller/instance.controller.php">
         <input type="hidden" name="operation" value="edit"/>
 
-        <label>Id:</label>
+        <label>Id:</label><br>
         <input type="text" name="id_Cicleinstance" value=""><br>
 
-        <label>Fecha de Inicio:</label> 
+        <label>Fecha de Inicio:</label> <br>
         <input type="date" name="stdate_instance" value=""><br>
 
-        <label>Fecha de Finalización:</label> 
+        <label>Fecha de Finalización:</label> <br>
         <input type="date" name="findate_instance" value=""><br>
 
-        <label>Año:</label>  
+        <label>Año:</label>  <br>
         <input type="text" name="year_instance" value=""><br>
 
-        <label>Cuatrimestre:</label>    
+        <label>Trimestre:</label>    <br>
         <input type="number" name="quarnumber_instance" value=""><br>
 
         <button type="submit" name="aceptar">Aceptar</button>
@@ -38,10 +38,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Fecha In</th>
                     <th>Fecha Fin</th>
                     <th>Año</th>
-                    <th>Cuatrimestre</th>
-                    <th>Nota</th>
+                    <th>Trimestre</th>
                 </tr>
             </thead>
             <tbody id="instanceTable">
@@ -50,11 +50,8 @@
         </table>
     </div>
 </div>
-<script src="./js/EditInstance.js"></script>
+<script src="js/EditInstance.js"></script>
     <table border="1" id="instanceTable"></table> 
 </body>
-<?php include("components/footer.php");?>
+
 </html>
-
-
-
