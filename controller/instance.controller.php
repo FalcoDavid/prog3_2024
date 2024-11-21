@@ -12,7 +12,6 @@ if ($operation == "add") {
     $instance->setFindateInstance($_REQUEST["findate_Instance"]);
     $instance->setYearInstance($_REQUEST["year_Instance"]);
     $instance->setQuarnumberInstance($_REQUEST["quarnumber_Instance"]);
-    $instance->setNoteInstance($_REQUEST["note_Instance"]);
     $instance->addInstance();
 
 } else if ($operation == "update") {
@@ -22,14 +21,22 @@ if ($operation == "add") {
     $instance->setFindateInstance($_REQUEST["findate_Instance"]);
     $instance->setYearInstance($_REQUEST["year_Instance"]);
     $instance->setQuarnumberInstance($_REQUEST["quarnumber_Instance"]);
-    $instance->setNoteInstance($_REQUEST["note_Instance"]);
     $instance->editInstance();
 
 } else if ($operation == "delete") {
     // Eliminamos la instancia
-    $instance->setIdCicleInstance($_REQUEST["idCicleInstance"]); 
-    $result = $instance->deleteInstance();
-    echo $result; 
+    if (isset($_REQUEST["idCicleInstance"])) {
+        $instance->setIdCicleInstance($_REQUEST["idCicleInstance"]); 
+        $result = $instance->deleteInstance();  // Método para eliminar la instancia en la base de datos
+        
+        // Verificamos el resultado y mostramos un mensaje adecuado
+        if ($result) {
+            echo "Instancia eliminada correctamente.";
+        } else {
+            echo "Error al eliminar la instancia.";
+        }
+    } else {
+        echo "ID de la instancia no proporcionado.";
+    }
 }
 ?>
-
